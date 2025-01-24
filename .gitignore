@@ -169,3 +169,4 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+src/test/chatbot_test.ipynb
