@@ -6,6 +6,7 @@ from src.utils.response import get_chat_response, get_client
 from src.utils.logger import logging
 from src.config.app_config import ChatbotConfig as cc
 
+
 class GuardAgent():
     def __init__(self):
         self.client = get_client(

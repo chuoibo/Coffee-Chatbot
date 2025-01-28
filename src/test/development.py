@@ -1,14 +1,17 @@
 import os
 
+from src.utils.logger import logging
 from src.modules.agents import (AgentProtocol, 
-                                GuardAgent)
+                                GuardAgent,
+                                ClassificationAgent)
 
 def main():
     guard_agent = GuardAgent()
+    classification_agent = ClassificationAgent()
 
     messages = []
     while True:
-        os.system('cls' if os.name == 'nt' else 'clear')
+        # os.system('cls' if os.name == 'nt' else 'clear')
         
         print('----------Print messages----------')
         for message in messages:
@@ -18,10 +21,14 @@ def main():
         messages.append({"role": "user", "content": prompt})
 
         guard_agent_response = guard_agent.get_response(messages)
+        if guard_agent_response['memory']['guard_decision'] == 'not_allowed':
+            messages.append(guard_agent_response)
+            continue
 
-        print(f"Response: {guard_agent_response}")
+        classification_agent_response = classification_agent.get_response(messages=messages)
+        chosen_agent = classification_agent_response['memory']['classification_agent']
 
-        print(f'Guard Agent: {guard_agent_response['content']}\nDecision: {guard_agent_response['memory']['guard_decision']}')
+        logging.info(f"Chosen Agent: {chosen_agent}")
 
         messages.append(guard_agent_response)
 
