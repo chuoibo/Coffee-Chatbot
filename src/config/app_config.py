@@ -12,6 +12,8 @@ class ChatbotConfig:
     RUNPOD_TOKEN = os.getenv("RUNPOD_TOKEN")
     RUNPOD_URL = os.getenv("RUNPOD_URL")
 
+    VECTOR_DATABASE_API_KEY = os.getenv('PINECONE_API_KEY')
+
     chatbot_cfg = cfg['chatbot']
     embedding_cfg = cfg['embedding']
 
@@ -21,5 +23,9 @@ class ChatbotConfig:
     max_tokens = chatbot_cfg['max_tokens']
 
     embedding_model_name = embedding_cfg['model_name']
+    embedding_model_cache = embedding_cfg['model_cache']
+    vector_database_index_name = embedding_cfg['vector_database_index_name']
+    namespace = embedding_cfg['namespace']
+    top_k = embedding_cfg['top_k']
 
 

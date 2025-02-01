@@ -6,3 +6,7 @@ chatbot:
 
 embedding:
   model_name: sentence-transformers/all-MiniLM-L6-v2
+  model_cache: model/embedding
+  vector_database_index_name: coffeeshop
+  namespace: ns1
+  top_k: 2

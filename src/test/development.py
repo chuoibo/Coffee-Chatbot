@@ -3,11 +3,16 @@ import os
 from src.utils.logger import logging
 from src.modules.agents import (AgentProtocol, 
                                 GuardAgent,
-                                ClassificationAgent)
+                                ClassificationAgent,
+                                DetailAgent)
 
 def main():
     guard_agent = GuardAgent()
     classification_agent = ClassificationAgent()
+
+    agent_dict: dict[str, AgentProtocol] = {
+        "details_agent": DetailAgent()
+    }
 
     messages = []
     while True:
@@ -29,6 +34,11 @@ def main():
         chosen_agent = classification_agent_response['memory']['classification_agent']
 
         logging.info(f"Chosen Agent: {chosen_agent}")
+
+        agent = agent_dict[chosen_agent]
+        response = agent.get_response(messages)
+
+        logging.info(f"Response: {response}")
 
         messages.append(guard_agent_response)
 

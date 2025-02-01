@@ -7,7 +7,7 @@ from src.utils.logger import logging
 from src.config.app_config import ChatbotConfig as cc
 
 
-class GuardAgent():
+class GuardAgent:
     def __init__(self):
         self.client = get_client(
             api_key=cc.RUNPOD_TOKEN,
