@@ -10,3 +10,9 @@ embedding:
   vector_database_index_name: coffeeshop
   namespace: ns1
   top_k: 2
+
+recommendation:
+  apriori_recommendation_path: dataset/apriori_recommendations.json
+  popular_recommendation_path: dataset/popularity_recommendation.csv
+  apriori_top_k: 5
+  popular_top_k: 5

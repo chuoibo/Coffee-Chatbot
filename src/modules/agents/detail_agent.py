@@ -36,7 +36,7 @@ class DetailAgent:
         logging.info('Initialize detail agent ...')
 
 
-    def get_results(self, index_name, input_embedding, top_k):
+    def get_results(self, index_name, input_embedding):
         index = self.vector_database.Index(index_name)
 
         results = index.query(
