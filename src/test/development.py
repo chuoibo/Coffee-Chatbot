@@ -1,5 +1,3 @@
-import os
-
 from src.utils.logger import logging
 from src.modules.agents import (AgentProtocol, 
                                 GuardAgent,

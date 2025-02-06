@@ -16,6 +16,7 @@ class ChatbotConfig:
 
     chatbot_cfg = cfg['chatbot']
     embedding_cfg = cfg['embedding']
+    recommendation_cfg = cfg['recommendation']
 
     chatbot_model_name = chatbot_cfg['model_name']
     temperature = chatbot_cfg['temperature']
@@ -27,5 +28,10 @@ class ChatbotConfig:
     vector_database_index_name = embedding_cfg['vector_database_index_name']
     namespace = embedding_cfg['namespace']
     top_k = embedding_cfg['top_k']
+
+    apriori_recommendation_path = recommendation_cfg['apriori_recommendation_path']
+    popular_recommendation_path = recommendation_cfg['popular_recommendation_path']
+    apriori_top_k = recommendation_cfg['apriori_top_k']
+    popular_top_k = recommendation_cfg['popular_top_k']
 
 

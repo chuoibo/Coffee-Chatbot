@@ -3,3 +3,4 @@ PyYAML==6.0.2
 python-dotenv==1.0.1
 sentence-transformers==3.4.1
 pinecone==5.4.2
+pandas==2.2.3
