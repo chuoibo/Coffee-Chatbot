@@ -58,17 +58,17 @@ class RecommendationAgent:
     
 
     def get_popular_recommendation(self, product_category):
-       if isinstance(product_category, str):
-        product_category = [product_category]
+        if isinstance(product_category, str):
+            product_category = [product_category]
 
         if product_category is not None:
             recommendation_df = self.popular_recommendation[self.popular_recommendation['product_category'].isin(product_category)]
-        
+
         recommendation_df = recommendation_df.sort_values(by='number_of_transactions', ascending=False)
 
         if recommendation_df.shape[0] == 0:
             return []
-        
+
         recommendations = recommendation_df['product'].tolist()[:cc.popular_top_k]
 
         return recommendations

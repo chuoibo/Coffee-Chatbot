@@ -2,14 +2,16 @@ from src.utils.logger import logging
 from src.modules.agents import (AgentProtocol, 
                                 GuardAgent,
                                 ClassificationAgent,
-                                DetailAgent)
+                                DetailAgent,
+                                RecommendationAgent)
 
 def main():
     guard_agent = GuardAgent()
     classification_agent = ClassificationAgent()
 
     agent_dict: dict[str, AgentProtocol] = {
-        "details_agent": DetailAgent()
+        "details_agent": DetailAgent(),
+        "recommendation_agent": RecommendationAgent()
     }
 
     messages = []
